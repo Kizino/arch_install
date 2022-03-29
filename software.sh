@@ -4,7 +4,7 @@
 #-------------------------------------------------------------------------
 
 echo
-echo "INSTALLING BLUETOOTH COMPONENTS"
+echo "INSTALLING SOFTWARE"
 echo
 
 PKGS=(
@@ -18,15 +18,3 @@ for PKG in "${PKGS[@]}"; do
     echo "INSTALLING ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed
 done
-
-
-echo
-echo "Enabling bluetooth daemon and setting it to auto-start"
-
-sudo sed -i 's|#AutoEnable=false|AutoEnable=true|g' /etc/bluetooth/main.conf
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
-
-echo
-echo "Done!"
-echo

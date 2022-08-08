@@ -8,11 +8,13 @@ echo "INSTALLING SOFTWARE"
 echo
 
 PKGS=(
-        'bluez'                 # Daemons for the bluetooth protocol stack
-        'bluez-utils'           # Bluetooth development and debugging utilities
-        'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
-        'pipewire-pulse'        # Bluetooth support for PipeWire
+        'python'                # Python
+        'python-pip'            # Pip
+        'tk'                    # Python interface to the Tcl/Tk GUI toolkit (matplotlib graph)
         'cronie'                # Cron job
+        'base-devel'            # Tools needed for building (compiling and linking)
+        'git'                   # git
+        'wget'                  # Network utility to retrieve files from the Web
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -22,3 +24,20 @@ done
 
 sudo systemctl enable cronie.service
 sudo systemctl start cronie.service
+
+# Install yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+
+AUR_PKGS=(
+        'google-chrome'                 # Chrome
+        'postman-bin'                   # Postman
+        'visual-studio-code-bin'        # Visual studio
+)
+
+for PKG in "${AUR_PKGS[@]}"; do
+    echo "INSTALLING ${AUR_PKGS}"
+    yay -S "$AUR_PKGS" --noconfirm --needed
+done

@@ -8,13 +8,14 @@ echo "INSTALLING SOFTWARE"
 echo
 
 PKGS=(
+        'wget'                  # Network utility to retrieve files from the Web
         'python'                # Python
         'python-pip'            # Pip
         'tk'                    # Python interface to the Tcl/Tk GUI toolkit (matplotlib graph)
         'cronie'                # Cron job
         'base-devel'            # Tools needed for building (compiling and linking)
         'git'                   # git
-        'wget'                  # Network utility to retrieve files from the Web
+        'docker'                # Docker
 )
 
 for PKG in "${PKGS[@]}"; do

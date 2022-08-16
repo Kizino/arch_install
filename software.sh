@@ -26,6 +26,7 @@ sudo systemctl enable cronie.service
 sudo systemctl start cronie.service
 
 # Install yay
+cd ~/
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -41,3 +42,5 @@ for PKG in "${AUR_PKGS[@]}"; do
     echo "INSTALLING ${AUR_PKGS}"
     yay -S "$AUR_PKGS" --noconfirm --needed
 done
+
+

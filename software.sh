@@ -25,6 +25,8 @@ done
 
 sudo systemctl enable cronie.service
 sudo systemctl start cronie.service
+sudo systemctl enable docker
+sudo systemctl start docker
 
 # Install yay
 cd ~/
